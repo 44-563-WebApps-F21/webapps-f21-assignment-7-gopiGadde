@@ -21,7 +21,7 @@
 	  }
 	}
     p#tries {
-    color: rgb(252, 166, 6);
+    color: rgb(252, 6, 6);
     background: greenyellow; /* yellow */
    
   }
@@ -67,54 +67,54 @@
 
         <div class="container">
             <div class = "row">
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant1" onclick="check(0)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant2" onclick="check(1)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant3" onclick="check(2)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant4" onclick="check(3)" height="70" width="70"> </div>
                 
             </div>
             
             <div class = "row">
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant5" onclick="check(4)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant6" onclick="check(5)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant7" onclick="check(6)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant8" onclick="check(7)" height="70" width="70"> </div>
                 
                
             </div>
             
             <div class = "row">
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant9" onclick="check(8)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant10" onclick="check(9)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant11" onclick="check(10)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant12" onclick="check(11)" height="70" width="70"> </div>
                 
                 
             </div>
             
             <div class = "row">
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                
-               
-            </div>
-
-            <div class = "row">
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant13" onclick="check(12)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant14" onclick="check(13)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant15" onclick="check(14)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant16" onclick="check(15)" height="70" width="70"> </div>
                 
                
             </div>
 
             <div class = "row">
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
-                <div><img src="plant.webp" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant17" onclick="check(16)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant18" onclick="check(17)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant19" onclick="check(18)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant20" onclick="check(19)" height="70" width="70"> </div>
+                
+               
+            </div>
+
+            <div class = "row">
+                <div><img src="plant.webp" id="plant21" onclick="check(20)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant22" onclick="check(21)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant23" onclick="check(22)" height="70" width="70"> </div>
+                <div><img src="plant.webp" id="plant24" onclick="check(23)" height="70" width="70"> </div>
                 
                
             </div>
@@ -123,7 +123,63 @@
             
         
         </div>
+        <script>
+            var ids = ["plant1","plant2","plant3","plant4","plant5","plant6","plant7","plant8","plant9","plant10","plant11","plant12","plant13","plant14","plant15","plant16","plant17","plant18","plant19","plant20","plant21","plant22","plant23","plant24"];
+        
+            var triesCount = 0;
+            var animalLocation = 13;
+        
+            function check(position) {
+              id = ids[position]
+              imagePosition = document.getElementById(id)
+              if (position == animalLocation) {
+                imagePosition.src = "tiger.jpg"
+              } else {
+                imagePosition.src = "dirt.jpg"
+              }
+        
+              triesCount = triesCount + 1;
+        
+              document.getElementById("tries").innerHTML = "Number of tries is " + triesCount ;
+              document.getElementById("distance").innerHTML = "Distance is " + distance(position, animalLocation);
+
+
+
+              
+            }
+            function distance(pos1, pos2)
+ {
+    var disa1,disa2,disb1,dis2;   
+    var matrix =[[0,1,2,3,4,5,6], [7,8,9,10,11,12], [13,14,15,16,17,18], [19,20,21,22,23]]
+    for(let x=0;x<matrix.length;x++)
+    {
+        for(let y=0;y<6;y++)
+        {
+            if(matrix[x][y]==pos1)
+            {
+                disa1=x
+                disb1=y
+            }
+        }
+
+    }
+    for(let x=0;x<matrix.length;x++)
+    {
+        for(let y=0;y<matrix[x].length;y++)
+        {
+            if(matrix[x][y]==pos2)
+            {
+               disa2=x
+                disb2=y
+            }   
+        }
+    }
+   return Math.max(Math.abs(disa1-disa2),Math.abs(disb1-disb2))
+}
+        
             
+          </script>
+        
             
             
     </body>
