@@ -16,31 +16,49 @@
 
   <button type="button"
   class="btn btn-primary"
-  onclick="recordReact()">
+  onclick="startTime()">
   Start Timer</button>
+
   <button type="button"
   class="btn btn-primary"
   onclick="recordReact()">
   React Now</button>
   
-  <p id="target">Your time </p>
-  <p id=" countdown">Count </p>
   
+ 
+  <p id="target">Your time</p>
+  <p id="countdown">Count</p>
   
   <script> 
-   var myTime=undefined;
-   function recordReact() {
+  var myTime=undefined;
+  function recordReact() {
           
           myTime = Date.now();
           console.log("Current Time in milliseconds is: " + myTime);
 
         }
+        function startTime() {
+            myTime = undefined;
+            buttonTime = Date.now();
 
-  function buttonPress2() {
-    setTimeout(()=>{
-      document.getElementById('target').style.color = "red"
-    }, 3000)
-  }
+            for(let i=0;i<4;i++){
+              setTimeout(() => {
+                  document.getElementById("countdown").innerHTML = i;
+                }, (3-i)*1000);
+            }
+
+              setTimeout(() => {
+                if(myTime == undefined){
+                  document.getElementById("target").innerHTML = "Too Slow";
+                }
+                
+                else{
+                  let elapsedTime = (-1) * (buttonTime - myTime);
+                  document.getElementById("target").innerHTML = "Time was "+elapsedTime;
+                }
+              }, 3000)
+            }
+
   </script>
 
 </body>
