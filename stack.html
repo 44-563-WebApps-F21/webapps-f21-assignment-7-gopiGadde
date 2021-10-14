@@ -27,27 +27,50 @@
 <body>
 	<input id="InputElement" type="text" > 
 		<div class="flex-container" id="target">
-		  <div>row item 1</div>   
-		  <div>row item 2</div>  
-		  <div>row item 3</div>  
+		  <div class="stack">row item 1</div>   
+		  <div class="stack">row item 2</div>  
+		  <div class="stack">row item 3</div>  
 		</div>
 	
 	<p> Press the button to create an new element of type div and then add it to the container.
 		</p>
-		<button onclick="makeNewDiv()">Add one</button>
+		<button onclick="makeNewDiv()">Push Value</button>
+		<button onclick="popItem()">Pop Value</button>
+		<button onclick="zap()">Zap Value</button>
 	
 	
 </body>
 <script>
 	function makeNewDiv(){
 		/* make the div and its text */
-		let element = document.createElement("p")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
-
+		var divelement = document.createElement("div")
+	var input = document.getElementById("InputElement")
+	divelement.innerHTML = input.value
+	divelement.className = "stack"	
 		/* add it to the container */
-		document.getElementById('target').appendChild(element)
-		
+	document.getElementById('target').appendChild(divelement)
+	
 	}
+function popItem(){
+	var stackItems = document.getElementsByClassName("stack")
+		var length = stackItems.length
+		if (length > 0)
+		stackItems[length - 1].remove()
+}
+function zap(){
+	var stackItems = document.getElementsByClassName("stack")
+	let input = document.getElementById("InputElement").value
+	if (stackItems != undefined && stackItems.length > 0) {
+			for (let i = 0; i < stackItems.length; i++) {
+				if (stackItems[i].innerHTML == input) {
+					var itemToBeRemoved = stackItems[i].innerHTML
+					stackItems[i].remove()
+					console.log(itemToBeRemoved)
+					i--
+				}
+			}
+	}
+
+}
 </script>
 </html>	
