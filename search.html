@@ -62,7 +62,7 @@
         <p>Click on the squares to search for wild life</p>
         <p id="tries">Number of tries is zero</p>
         <p id="distance">Distance is unknown</p>
-        
+        <button onclick="newgame()">restbuton</button>
            
 
         <div class="container">
@@ -177,6 +177,12 @@
    return Math.max(Math.abs(disa1-disa2),Math.abs(disb1-disb2))
 }
         
+  function newgame()
+  {
+    document.getElementById("tries").innerHTML=0;
+    animalLocation = Math.floor(Math.random() * (23 - 0 + 1) + 0)
+
+  }
             
           </script>
         

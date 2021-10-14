@@ -35,18 +35,16 @@
           
           myTime = Date.now();
           console.log("Current Time in milliseconds is: " + myTime);
-
         }
         function startTime() {
             myTime = undefined;
             buttonTime = Date.now();
-
-            for(let i=0;i<4;i++){
+           let i = Math.floor(Math.random() * (10 - 2 + 1) + 2)
+            for(i=0;i<10;i++){
               setTimeout(() => {
                   document.getElementById("countdown").innerHTML = i;
                 }, (3-i)*1000);
             }
-
               setTimeout(() => {
                 if(myTime == undefined){
                   document.getElementById("target").innerHTML = "Too Slow";
